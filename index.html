@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<meta charset="UTF-8">
+	<title>WebGenius Image Sluth Web App</title>
+</head>
+<body>
+	<div class="container">
+		<h1>WebGenius Image Sluth Web App</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>URL</th>
+					<th>Action</th>
+				</tr>
+				<tr>
+					<td><input class="form-control title-input" placeholder="Enter the website name of your choice"></td>
+					<td><input class="form-control url-input" placeholder="Enter the url"></td>
+					<td><button class="btn btn-primary add-blog">Add</button></td>
+				</tr>
+			</thead>
+			<tbody class="blogs-list"></tbody>
+		</table>
+	</div>
+
+	<script type="text/template" class="blogs-list-template">
+	<td><span class="title"><%= title %></span></td>
+        <td>
+            <span class="url"><%= url %></span>
+        </td>
+	<td><button class="btn btn-warning edit-blog">Edit</button> <button class="btn btn-danger delete-blog">Delete</button><button class="btn btn-success update-blog" style="display:none">Update</button> <button class="btn btn-danger cancel" style="display:none">Cancel</button></td>
+
+	</script>
+	
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/underscore/underscore.js"></script>
+	<script src="bower_components/backbone/backbone.js"></script>
+	<script src="scripts.js"></script>
+    <!-- ToDo: Add image scrape query here. -->
+    <!--<script>
+        var text = '{"employees":[' +
+        '{"firstName":"John","lastName":"Doe" },' +
+        '{"firstName":"Anna","lastName":"Smith" },' +
+        '{"firstName":"Peter","lastName":"Jones" }]}';
+
+        obj = JSON.parse(text);
+        document.getElementById("demo").innerHTML =
+        obj.employees[0].firstName + " " + obj.employees[1].lastName;
+    </script>-->
+
+    <script>
+                //pic = JSON.parse(text);
+                //document.getElementByClass("title").innerHTML = "";
+                //pic.employees[0].firstName + " " + pic.employees[1].lastName;
+    </script>
+</body>
+</html>
