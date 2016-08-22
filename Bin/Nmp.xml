@@ -1,0 +1,1191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nmp</name>
+    </assembly>
+    <members>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.newStringList(System.Object[])">
+            <summary>
+            Creates a new string list
+            </summary>
+            <param name="objs"> Any number of objects to be added to the list when it is created</param>
+            <returns>The list as an object</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.newObjectList(System.Object[])">
+            <summary>
+            Creates a new object list
+            </summary>
+            <param name="objs"> Any number of objects to be added to the list when it is created</param>
+            <returns>The list as an object</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.newArray(System.String[])">
+            <summary>
+            Creates an Nmp array which is a string object dictionary
+            
+            The strings that can be passed to the method can be in one of three formats.
+            + key = value (or key : value)
+             + added as a key/value pair
+            + key
+             + added as key with an empty value
+            + json
+             + atempts to parse the string as json, on success is appended to the array, this
+             implies the json look like: "name" : [ ... ] or "name" : { ... }
+            </summary>
+            <param name="strs">Any number of strings</param>
+            <returns>object that is the Nmp array</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.eval(System.String[])">
+            <summary>
+            Evaluates the strings passed to eval(...) using 
+            Microsoft.JScript.Eval.JScriptEvaluate after concatenating all of the
+            strings passed in
+            </summary>
+            <param name="strs">Any number of strings</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.not(System.String)">
+            <summary>
+            Negates the result of the input value
+            </summary>
+            <param name="value"></param>
+            <returns>Negated result</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.allTrue(System.Object[])">
+            <summary>
+            Evaluates all arguments passed for truthfullness
+            </summary>
+            <param name="args">arguments</param>
+            <returns>true if all arguments evaluate to true</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.anyTrue(System.Object[])">
+            <summary>
+            Evaluates all arguments passed for truthfullness
+            </summary>
+            <param name="args">arguments</param>
+            <returns>true if any argument evaluates to true</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.allFalse(System.Object[])">
+            <summary>
+            Evaluates all arguments passed for truthfullness
+            </summary>
+            <param name="args">arguments</param>
+            <returns>true if all arguments evaluate to true</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.anyFalse(System.Object[])">
+            <summary>
+            Evaluates all arguments passed for truthfullness
+            </summary>
+            <param name="args">arguments</param>
+            <returns>true if any argument evaluates to true</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.nmpRegion(System.String,System.Object[])">
+            <summary>
+            Does nothing macro, included to allow regions to be defined for use by a
+            text editor (sublime and others)
+            </summary>
+            <param name="name"></param>
+            <param name="optionalArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.endNmpRegion(System.String,System.Object[])">
+            <summary>
+            Does nothing macro, included to allow regions to be defined for use by a
+            text editor (sublime and others)
+            </summary>
+            <param name="name"></param>
+            <param name="optionalArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.sleep(System.Int32)">
+            <summary>
+            Needs to go away, using Thread.Sleep() is not a good idea
+            </summary>
+            <param name="ms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.newDateTime(System.Int64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates and returns a DateTime object
+            </summary>
+            <param name="ticksOrYear"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="ms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.newDateTimeUtc(System.Int64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates and returns a DateTime object based on current Utc
+            </summary>
+            <param name="ticksOrYear"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="ms"></param>
+            <param name="utc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.dateTime(System.String)">
+            <summary>
+            Formats the current date time
+            </summary>
+            <param name="format">Format string, empty for default</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.dateTimeUtc(System.String)">
+            <summary>
+            Formats the current Utc data time
+            </summary>
+            <param name="format">Format string, empty for default</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Nmp.Builtin.Macros.CoreMacros.forloop(System.Int32,System.Int32,System.Int32,System.String,System.Object[])" -->
+        <!-- Badly formed XML comment ignored for member "M:Nmp.Builtin.Macros.CoreMacros.foreach(System.Object,System.String,System.Object[])" -->
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.dumpMacro(System.Boolean,System.String[])">
+            <summary>
+            Outputs the contents of a macro into the ouput or error stream
+            </summary>
+            <param name="dumpToOutput">If true outputs to the error stream</param>
+            <param name="names">Macro names to dump, '*' dumps all</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.define(System.String,System.Object,System.String[])">
+            <summary>
+            Defines a mach
+            </summary>
+            <param name="macroName">Macho name where value should be placed</param>
+            <param name="macroObject">Text or an object (`@someObject')</param>
+            <param name="argNames">Options names for arguments passed to macro</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.push(System.String,System.Object,System.String[])">
+            <summary>
+            Pushes a macro with the same name on a macro stack and defines a new macro
+            with the same name
+            </summary>
+            <param name="macroName"></param>
+            <param name="macroObject"></param>
+            <param name="argNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.pop(System.String)">
+            <summary>
+            Removes a macro from the macro stack for 'macroName'
+            </summary>
+            <param name="macroName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.popdef(System.String)">
+            <summary>
+            Same as 'pop'
+            </summary>
+            <param name="macroName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.undef(System.String)">
+            <summary>
+            Undefines a macro
+            If the macro has been pushed works the same as 'pop', otherwise the macro
+            is removed
+            </summary>
+            <param name="macroName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.echo(System.String[])">
+            <summary>
+            Echos its arguments back
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.BreakNext">
+            <summary>
+            If running under the VS debugger breaks before evaluating and processing
+            the next macro parsed from the input
+            </summary>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.clearDivert(System.String)">
+            <summary>
+            Clears the diversion to an empty string
+            </summary>
+            <param name="divName">Name of diversion</param>
+            <returns>empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.pushDivert(System.String)">
+            <summary>
+            Pushes the current diversion on a stack and sets a new diversion
+            </summary>
+            <param name="divName">Name of diversion to switch too</param>
+            <returns>empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.pushdivert(System.String)">
+            <summary>
+            All lower case name for pushDivert
+            </summary>
+            <param name="divName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.popDivert">
+            <summary>
+            Pops the diversion stack
+            </summary>
+            <returns>empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.popdivert">
+            <summary>
+            All lower case name for popDivert
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.divert(System.String)">
+            <summary>
+            Changes to a new diversion
+            </summary>
+            <param name="divName">Name of diversion to switch too</param>
+            <returns>empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.undivert(System.String[])">
+            <summary>
+            Retreives the text from all diversions requested and clears them
+            </summary>
+            <param name="args">List of diversion names</param>
+            <returns>Text of the diversions</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.fetchDivert(System.String,System.Boolean,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Fetches the text of a single diversion and optionaly clears it
+            </summary>
+            <param name="divName"></param>
+            <param name="clear"></param>
+            <param name="count"></param>
+            <param name="prependStr"></param>
+            <param name="suppressWarnings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.fetchDivert(System.String,System.Boolean)">
+            <summary>
+            Fetches the text of a single diversion and optionaly clears it
+            </summary>
+            <param name="divName">Name of diversion</param>
+            <param name="clear">Clear diversion if true</param>
+            <returns>Text of the diversion</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.includeDivert(System.String,System.Boolean)">
+            <summary>
+            Need to test this, no longer sure what it does!
+            I think it appends the diversion to the input if an IInput is attached
+            to the macro arguments associated with the current (includeDivert) macro
+            </summary>
+            <param name="divName"></param>
+            <param name="clear"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.saveDivert(System.String,System.String,System.Boolean)">
+            <summary>
+            Saves the diversion to a text file
+            </summary>
+            <param name="fileName">Output file name, relative to currently active input
+            file or absolute (if full path provided)</param>
+            <param name="divName">Diversion to save</param>
+            <param name="clearDiv">If true clear diversion</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.saveDivert(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Saves the diversion to a text file, optionally appending rather than replacing the file contents
+            </summary>
+            <param name="fileName">Output file name, relative to currently active input
+            file or absolute (if full path provided)</param>
+            <param name="divName">Diversion to save</param>
+            <param name="clearDiv">If true clear diversion</param>
+            <param name="append">If true appends the text to file name</param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.dumpDivert(System.String,System.Boolean)">
+            <summary>
+            Outputs the contents of the diversion to the output or error stream
+            </summary>
+            <param name="divName">Diversion name</param>
+            <param name="toOutput">If true the text goest to the error stream, otherwise placed
+            in the output of macro processor is a way that it will receive not further processing
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.nofile">
+            <summary>
+            Tells the command line host to not output a file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.setOutputExtension(System.String)">
+            <summary>
+            Sets the file extension for the command line host
+            </summary>
+            <param name="ext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.setOutputEncoding(System.String)">
+            <summary>
+            Sets the text encoding for the output file
+            
+            Currently only the command line host pays attention to this
+            
+            </summary>
+            <param name="encoding">
+            
+            Values can be: ascii, utf7, utf8, utf32, or unicode  (16 bit)
+            	
+            	</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.include(System.String)">
+            <summary>
+            Includes a file into the input
+            </summary>
+            <param name="fileName">fileName is relative to durrentDirectory if not a
+            full path</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.readFile(System.String,System.String,System.String)">
+            <summary>
+            Reads a file into a text macro
+            </summary>
+            <param name="macroName">Name of the macro to place the text</param>
+            <param name="fileName">Source file name</param>
+            <param name="regExStr">Optional regular expression to extract the portion of
+            the file you want; if the string is NOT empty Nmp will use the string as is,
+            the outermost capture is used to set the macro - if there are no captures then
+            the entire mach is used</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.bozo">
+            <summary>
+            There was a bozo the clown
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.setRegexRecognizer(System.Boolean,System.String[])">
+            <summary>
+            Activate or deactivate the regular expression recognizer
+            </summary>
+            <param name="activate">True turns on, false off</param>
+            <param name="flags">"regexOnly" if you want to use just the regex recognizer, "checkWhiteSpace" to
+            include white space in regular expression checking</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.addRecognizerRegex(System.String,System.String,System.String)">
+            <summary>
+            Add a regular expression to the regular expression recognizer
+            
+            To remove regular expression call again with 'regExName' the same and
+            'regExStr' empty
+            </summary>
+            <param name="regExName">Name for the regular expression</param>
+            <param name="regExStr">Regular expression</param>
+            <param name="macroToCall">Macro to call when regular expression matches</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.exit(System.Int32)">
+            <summary>
+            Exits command line host
+            </summary>
+            <param name="exitCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.getMacros">
+            <summary>
+            Gets an Nmp array where the keys are the names of macros
+            and their value is an IMacro instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.getMacroNames">
+            <summary>
+            Gets an Nmp array of macro names
+            Where the key "unsorted" an unsorted list of all macro names
+            Where the key "sorted" is a sorted list of all macro names
+            Where the key "builtin" is a sorted list of all Nmp supplied macros
+            Where the key "object" is a sorted list of all Object macros ?? including all Nmp supplied macros
+            And the key "text" is a sorted list of all text macros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.trace(System.Object[])">
+            <summary>
+            Writes a trace message to the error stream
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.markdown(System.String,System.String[])">
+            <summary>
+            see node_markdown()
+            </summary>
+            <param name="str">Required, the first string</param>
+            <param name="args">Any number of optional strings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.node_markdown(System.String,System.String[])">
+            <summary>
+            Transforms the supplied text with the 'marked' markdown converter 
+            package for node
+            
+            node.exe must be in your path and 'marked' must have been installed
+            
+            Note: markdown can also be invoked with (#block `markdown' ...)
+            </summary>
+            <param name="str">Required, the first string</param>
+            <param name="args">Any number of optional strings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.exec(System.String,System.String)">
+            <summary>
+            Executes a program and waits for it to complete or five seconds whichever is shorter
+            
+            Returns an object with the following properties:
+            
+            public string StdOut { get; }
+            public string StdErr { get; }
+            public int ExitCode { get; }
+            public bool Success { get; }
+            
+            </summary>
+            <param name="exeName">Name of the executable</param>
+            <param name="cmdLine">Command line</param>
+            <returns>returns object as described in the summary</returns>
+            
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.shell(System.String)">
+            <summary>
+            Executes the current shell
+            
+            Returns an object with the following properties:
+            
+            public string StdOut { get; }
+            public string StdErr { get; }
+            public int ExitCode { get; }
+            public bool Success { get; }
+            
+            </summary>
+            <param name="cmdLine">Command line</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.CoreMacros.makersp(System.String,System.Boolean)">
+            <summary>
+            Does a simple make for a C# project that is defined in a response file
+            </summary>
+            <param name="rspPath">Path to the response file</param>
+            <param name="loadLibrary">If true the library built by the make will be loaded</param>
+        </member>
+        <member name="P:Nmp.Builtin.Macros.CoreMacros.nmpAssemblyPath">
+            <summary>
+            Path to Nmp.dll
+            </summary>
+        </member>
+        <member name="P:Nmp.Builtin.Macros.CoreMacros.currentDirectory">
+            <summary>
+            Nmp's current directory
+            </summary>
+        </member>
+        <member name="P:Nmp.Builtin.Macros.CoreMacros.defpath">
+            <summary>
+            Default path - same as currentDirectory
+            </summary>
+        </member>
+        <member name="P:Nmp.Builtin.Macros.CoreMacros.currentFile">
+            <summary>
+            The current file Nmp is processing, can be empty if
+            </summary>
+        </member>
+        <member name="P:Nmp.Builtin.Macros.CoreMacros.parentFile">
+            <summary>
+            Parent file to currentFile
+            </summary>
+        </member>
+        <member name="P:Nmp.Builtin.Macros.CoreMacros.version">
+            <summary>
+            Nmp version
+            </summary>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.True(System.Object[])">
+            <summary>
+            Returns a value depending upon the truthfulness of the first argument
+            </summary>
+            <param name="args">Two or three arguments; first is value to evaluate; second is result if macro evaluates to true; optional third argument is returned for false, an empty string is returned if there is no third argument</param>
+            <returns>arg[1] for true, arg[2] for false; if arg [1] or [2] does not exist then the empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.true(System.Object[])">
+            <summary>
+            See True()
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.False(System.Object[])">
+            <summary>
+            Returns a value depending upon the truthfulness of the first argument
+            </summary>
+            <param name="args">Two or three arguments; first is value to evaluate; second is result if macro evaluates to true; optional third argument is returned for false, an empty string is returned if there is no third argument</param>
+            <returns>arg[1] for true, arg[2] for false; if arg [1] or [2] does not exist then the empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.false(System.Object[])">
+            <summary>
+            See False()
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.Else(System.Object[])">
+            <summary>
+            Checks a cascading sequence of value for true or false and returns a value
+            
+            Compares the next two values in the input object array where the first pair are argsIn[0] and argsIn[1]; if there are three values and the result is true then the third value is returned and if false an empty string is returned; when there are four values and the result is true then the third value is returned, if false the fourth value is returned. When there are six or more values and the result is false then the first three are discarded and processing begins over.
+            </summary>
+            <param name="argsIn">Values to compare and/or return</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.else(System.Object[])">
+            <summary>
+            See Else()
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.Empty(System.String[])">
+            <summary>
+            Returns a value depending upon the truthfulness of the first argument
+            </summary>
+            <param name="args">Two or three arguments; first is value to evaluate; second is result if macro evaluates to true; optional third argument is returned for false, an empty string is returned if there is no third argument</param>
+            <returns>arg[1] for true, arg[2] for false; if arg [1] or [2] does not exist then the empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.NotEmpty(System.String[])">
+            <summary>
+            Returns a value depending upon the truthfulness of the first argument
+            </summary>
+            <param name="args">Two or three arguments; first is value to evaluate; second is result if macro evaluates to true; optional third argument is returned for false, an empty string is returned if there is no third argument</param>
+            <returns>arg[1] for true, arg[2] for false; if arg [1] or [2] does not exist then the empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.Defined(System.String[])">
+            <summary>
+            Returns a value depending upon the truthfulness of the first argument
+            </summary>
+            <param name="args">Two or three arguments; first is value to evaluate; second is result if macro evaluates to true; optional third argument is returned for false, an empty string is returned if there is no third argument</param>
+            <returns>arg[1] for true, arg[2] for false; if arg [1] or [2] does not exist then the empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IfMacros.NotDefined(System.String[])">
+            <summary>
+            Returns a value depending upon the truthfulness of the first argument
+            </summary>
+            <param name="args">Two or three arguments; first is value to evaluate; second is result if macro evaluates to true; optional third argument is returned for false, an empty string is returned if there is no third argument</param>
+            <returns>arg[1] for true, arg[2] for false; if arg [1] or [2] does not exist then the empty string</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.Empty(System.String[])">
+            <summary>
+            Checks if the combination of all the passed arguments are empty
+            </summary>
+            <param name="args"></param>
+            <returns>True if empty string, otherwise false</returns>
+            
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.NotEmpty(System.String[])">
+            <summary>
+            Checks if the combination of all the passed arguments is not empty
+            </summary>
+            <param name="args"></param>
+            <returns>Returns true if not empty string, otherwise false</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.Equal(System.Object,System.Object)">
+            <summary>
+            Compares to objects
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns>Returns true if the two objects are the same, otherwise false</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.NotEqual(System.Object,System.Object)">
+            <summary>
+            Compares two objects
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns>Returns true if the two objects are the same, otherwise false</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.True(System.Object[])">
+            <summary>
+            Evaluates the first (or emtpy) argument
+            </summary>
+            <param name="args"></param>
+            <returns>True if true, false otherwise</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.False(System.Object[])">
+            <summary>
+            Evaluates the first (or emtpy) argument
+            </summary>
+            <param name="args"></param>
+            <returns>True if true, false otherwise</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.Defined(System.String[])">
+            <summary>
+            Evaluates the first (or emtpy) argument
+            </summary>
+            <param name="args"></param>
+            <returns>True if defined, false otherwise</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.IsMacros.NotDefined(System.String[])">
+            <summary>
+            Evaluates the first (or emtpy) argument
+            </summary>
+            <param name="args"></param>
+            <returns>True if true not defined, false otherwise</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.getType(System.String)">
+            <summary>
+            Get the Type instance for a type
+            </summary>
+            <param name="typeName">Name of the type</param>
+            <returns>Type instance</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.typeof(System.Object)">
+            <summary>
+            Gets the Type of an object
+            </summary>
+            <param name="obj">object whose type to get</param>
+            <returns>Type instance or empty</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.LoadAssembly(System.String)">
+            <summary>
+            Loads a assembly
+            </summary>
+            <param name="assemblyPathIn">Path to the assembly</param>
+            <example>
+            ;;
+            ;; load a library
+            ;;
+            ;; #object.loadAssembly( `pathToAssembly.dll' )
+            </example>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.loadAssembly(System.String)">
+            <summary>
+            See loadAssembly()
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.CreateNewObject(System.String,System.String,System.Object[])">
+            <summary>
+            Creates a new object
+            </summary>
+            <param name="assemblyPath">Path to assembly where type lives</param>
+            <param name="typeName">Name of type</param>
+            <param name="constructorArgs">Arguments for constructor</param>
+            <returns>The object</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.newObject(System.String,System.Object[])">
+            <summary>
+            Creates a new object searching for 'typeName' in all loaded assemblies
+            </summary>
+            <param name="typeName">Name of type</param>
+            <param name="constructorArgs">Arguments for constructor</param>
+            <returns>The object</returns>
+            <example>
+            ;;
+            ;; load a library
+            ;;
+            ;; #object.loadAssembly( `pathToAssembly.dll' )
+            ;;
+            ;; create an object macro with a instance of a class `aType' whose ctor 
+            ;; takes a single argument of type IMacroProcessor
+            ;;
+            #object.define( `macro', newObject( `aType', `@#mp')
+            </example>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.newObjectMacro(System.String,System.String,System.Object[])">
+            <summary>
+            Creates new object and places in a macro, 'typeName' is searched for in all loaded assemblies
+            </summary>
+            <param name="macroName">Output macro name</param>
+            <param name="typeName">Type name</param>
+            <param name="constructorArgs">Arguments for constructor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.newObject(System.String,System.String,System.Object[])">
+            <summary>
+            Creates a new object searching for 'typeName' in specific assembly
+            </summary>
+            <param name="assemblyPath">Path to assembly</param>
+            <param name="typeName">Name of type</param>
+            <param name="constructorArgs">Arguments for constructor</param>
+            <returns>The object</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.newObjectMacro(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Creates a new object searching for 'typeName' in specific assembly
+            </summary>
+            <param name="macroName">Output macro name</param>
+            <param name="assemblyPath">Path to assembly</param>
+            <param name="typeName">Name of type</param>
+            <param name="constructorArgs">Arguments for constructor</param>
+            <returns>The object</returns>
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.newStatic(System.String)">
+            <summary>
+            Creates an object that "stands in" for the static members of an object, allows access to the static members
+            </summary>
+            <param name="typeName">Name of type</param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Nmp.Builtin.Macros.ObjectMacros.newStaticMacro(System.String,System.String)">
+            <summary>
+            Creates an object that "stands in" for the static members of an object and places it in a macro
+            </summary>
+            <param name="macroName">Output macro name</param>
+            <param name="typeName">Name of type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Nmp.Expressions.StringObjectHelper">
+             <summary>
+             	NMP Object helper for strings.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.SplitEx(System.String)">
+             <summary>	Splits a string with a regular expression </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <param name="regExStr">	The regular expression string. </param>
+            
+             <returns>	. </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.Split(System.String)">
+             <summary>	Splits a string using another string as the delimiter. </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <param name="splitStr">	The split string. </param>
+            
+             <returns>	. </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.MatchEx(System.String)">
+             <summary>	Match a portion of the string with a regular expression </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <param name="regExStr">	The regular expression string. </param>
+            
+             <returns>	. </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.ExtractSubexpressions(System.String)">
+             <summary>	Extracts the subexpressions described by regExStr. </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <param name="regExStr">	The regular expression string. </param>
+            
+             <returns>	. </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.ExtractSubexpressions(System.String,System.Int32)">
+             <summary>	Extracts the subexpressions described by regExStr, limiting the
+             					number of items returned. </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <exception cref="T:System.ArgumentException">	
+             	Thrown when one or more arguments have unsupported or
+             	illegal values.
+             </exception>
+            
+             <param name="regExStr">	The regular expression string. </param>
+             <param name="maxItems">	The maximum items. </param>
+            
+             <returns>
+            		An NmpArray of subexpressions where the key is the string representation
+            		of the index of the item in the array ("0", "1", etc.) and the value of
+            		the item is another NmpArray that holds the matched subexpressions for
+            		the overall match (of item "0", item "1" etc.). Within the array that
+            		holds the matches the first item is alway named "match" and it contains
+            		the text of the overall regular expression match. There is one additional
+            		entry for each subexpression in the regular expression, if the subexpression
+            		has a name associated with it as in &lt;?&lt;name&gt;subExpression&gt; then the name
+            		will be the key to query for the matched value, otherwise the key will will
+            		the string value of the index of the subexpression. These string values
+            		start a "1" for the first subexpression, "2" for the second and so on. If
+            		a subexpression did not match any text then it will be empty.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.Extract(System.String)">
+             <summary>	Extracts the given regular expression as many times as it exists
+             					int he input string. </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <param name="regExStr">	The regular expression string. </param>
+            
+             <returns>	An array of extractes strings </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.Extract(System.String,System.Int32)">
+             <summary>	Extracts the given regular expression up to 'maxItem' times. </summary>
+            
+             <remarks>	Jpm, 3/26/2011. </remarks>
+            
+             <param name="regExStr">	The regular expression string. </param>
+             <param name="maxItems">	The maximum items. </param>
+            
+             <returns>	An array of extracted strings </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.ReplaceEx(System.String,System.Object[])">
+             <summary>
+             	Replace substrings in the string using a regular expression where each
+             	subexpression is replaced by one of the arguments passed in 'args'. All
+             	regular matches in the string are replaced.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             	If you wish to match a subexpression but do not with to replace it
+             	then use "/nr" as the replacement value and the subexpression will
+             	not be replaced.
+             	
+             	If only a single replacment value is passed to ReplaceEx() then it 
+             	will be used to replace all subexpressions, if you only want to replace
+             	the first subexpression then use "/nr" for the remaining matches.
+             	
+             	Trailing subexpressions that do not have a matching replacement value
+             	are not replaced.
+             </remarks>
+            
+             <param name="regExStr">
+             	The regular expression string.
+             </param>
+             <param name="args">
+             	The replacement values.
+             </param>
+            
+             <returns>
+             	The resulting string.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.Translate(System.String,System.String)">
+             <summary>
+             	Translates the string by looking up each character in 'lookup' and 
+             	replacing it with the character as the same index position in 'replace'.
+             	If the character is not found in 'lookup' then the original character
+             	is used.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="lookup">
+             	The lookup.
+             </param>
+             <param name="replace">
+             	The replace.
+             </param>
+            
+             <returns>
+             	The resulting string.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.Reverse">
+             <summary>
+             	Reverses the string.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <returns>
+             	The resulting string.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.TranslateEscapes">
+             <summary>
+             	Translates characters that are escaped in the string into unicode strings.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             	Escaped characters are:
+             			\a \b \t \r \v \f \n \e \xXX \uXXXX \UXXXX
+             </remarks>
+            
+             <returns>
+             	The resulting string.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.EscapeEscapes">
+             <summary>
+             	Double escapes any escaped characters in the string.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <returns>
+             	The resulting string.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.HtmlEncode(System.Boolean)">
+             <summary>
+             	Html encodes the string.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="encodeAngleBrackets">
+             	true to encode angle brackets, equal and ampersand characters.
+             </param>
+            
+             <returns>
+             	.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringObjectHelper.HtmlDecode">
+             <summary>
+             	Html decodes the string.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <returns>
+             	.
+             </returns>
+        </member>
+        <member name="T:Nmp.Builtin.Macros.GenericBlock">
+            <summary>
+            Define a text or object macro, which one is determined by the type of
+            object passed to the Evaluate() as the expressions second argument method
+            </summary>
+        </member>
+        <member name="T:Nmp.Builtin.Macros.Defmacro">
+            <summary>
+            Define a text or object macro, which one is determined by the type of
+            object passed to the Evaluate() as the expressions second argument method
+            </summary>
+        </member>
+        <member name="T:Nmp.Builtin.Macros.IfMacroHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Nmp.Builtin.Macros.Textblock">
+            <summary>
+            Define a text or object macro, which one is determined by the type of
+            object passed to the Evaluate() as the expressions second argument method
+            </summary>
+        </member>
+        <member name="M:Nmp.ObjectTest.QuoteString(System.Object)">
+            <summary>
+            Quotes the "ToString()" result of its argument
+            </summary>
+            <param name="obj">Object on whose "ToString()" result will be quoted</param>
+            <returns>The quoted string</returns>
+        </member>
+        <member name="P:Nmp.ObjectTest.AString">
+            <summary>
+            Returns a simple string
+            </summary>
+        </member>
+        <member name="T:Nmp.ObjectTest.AnEnum">
+            <summary>
+            An enum!
+            </summary>
+        </member>
+        <member name="M:Nmp.DefaultMacroProcessor._ProcessMacro(Nmp.IMacro,Nmp.IMacroArguments,System.Boolean)">
+            <summary>
+            This overload of ProcessMacro() is called when processing expressions or
+            other code that needs to run a macro, since it is not being executed from
+            the scanner level (i.e. freshly parsed text) it does not have a macro invocation
+            record
+            </summary>
+            <param name="macro"></param>
+            <param name="exp"></param>
+            <returns>object result of processing the macro</returns>
+        </member>
+        <member name="M:Nmp.DefaultMacroProcessor.ProcessMacro(Nmp.IMacroInvocationRecord)">
+            <summary>
+            This overload is called when we have a freshly parsed macro and expression
+            found at the scanner level, it has a macro invocation record and we return
+            a string
+            </summary>
+            <param name="mir"></param>
+            <returns>object converted to a string</returns>
+        </member>
+        <member name="M:NmpExpressions.ETB.GetToken(NmpBase.IParseReader)">
+            <summary>
+             Gets a token from input, unlike macro names token names in
+             expressions must follow 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nmp.Input.ParseReader">
+            <summary>
+            ParseReader is used to provide input for the scanner; it is important
+            that it always be created within a using () {} statement because it
+            manipulates the directory stack which must be kept balanced 
+            </summary>
+        </member>
+        <member name="M:Nmp.NMP.Evaluate(Nmp.IEvaluationContext,System.Boolean)">
+            <summary>
+            Evaluate the text in the IEvaluationContext, newOutput is currently
+            ignored - each evaluation gets a new Output object
+            </summary>
+            <param name="evx"></param>
+            <param name="newOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.NMP.InvokeMacro(System.String,System.Object[],System.Boolean)">
+            <summary>
+            Invokes a macro with the 'args' - currently not implemented
+            </summary>
+            <param name="macroName"></param>
+            <param name="args"></param>
+            <param name="newOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nmp.NmpBaseEvaluator">
+            <summary>
+            NmpEvaluator is the class seen by the outside world, create and invoke
+            methods on this class to run the macro processor
+            </summary>
+        </member>
+        <member name="M:Nmp.NmpBaseEvaluator.ClearMasterOutput">
+            <summary>
+            Clears the master output buffer so the next invocation of the macro
+            processor will have a clear output buffer; allows the caller to
+            clear the buffer after having called InvokeMacro( ... newOutput=false)
+            without setting newOutput to true on the next invocation
+            </summary>
+        </member>
+        <member name="M:Nmp.NmpBaseEvaluator.InvokeMacro(System.String,System.Object[],System.Boolean)">
+            <summary>
+            Invokes a macro by name
+            </summary>
+            <param name="macroName"></param>
+            <param name="args"></param>
+            <param name="newOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nmp.NmpBaseEvaluator.Evaluate(Nmp.IEvaluationContext,System.Boolean)">
+            <summary>
+            Invokes a macro with an instance of IEvaluationContext which provides
+            the text to be processed along with some information on where it came
+            from
+            </summary>
+            <param name="evx"></param>
+            <param name="newOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nmp.Expressions.StringArrayObjectHelper">
+             <summary>
+             	NMP Object helper for string arrays
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+        </member>
+        <member name="M:Nmp.Expressions.StringArrayObjectHelper.Join(System.String)">
+             <summary>
+             	Joins all the strings in the array with 'joinString'.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="joinStr">
+             	The join string.
+             </param>
+            
+             <returns>
+             	The string result of the joinn.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.StringArrayObjectHelper.#ctor(System.Object)">
+             <summary>
+             	Constructor.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <exception cref="T:System.ArgumentException">
+             	Thrown when one or more arguments have unsupported or illegal values.
+             </exception>
+            
+             <param name="theArray">
+             	Array of thes.
+             </param>
+        </member>
+        <member name="M:Nmp.Expressions.StringArrayObjectHelper.Create(System.Object)">
+             <summary>
+             	Creates this object.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="strArray">
+             	The string.
+             </param>
+            
+             <returns>
+             	.
+             </returns>
+        </member>
+        <member name="M:Nmp.Expressions.ObjectInfo.GetTypeName(System.Object)">
+            exists so we can support IStaticStandin
+        </member>
+        <member name="M:Nmp.Expressions.ObjectInfo.GetObjectType(System.Object)">
+            exists so we can support IStaticStandin
+        </member>
+        <member name="T:Nmp.ArgumentScanner">
+             <summary>
+             	Argument scanner.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="input">
+             	The input.
+             </param>
+             <param name="terminalChar">
+             	The terminal character.
+             </param>
+            
+             <returns>
+             	.
+             </returns>
+        </member>
+        <member name="T:Nmp.MacroFlags">
+            MacroOptions and MacroArguments are in MacroArguments.cs
+        </member>
+        <member name="M:Nmp.Output.MasterOutput.IsHexString(System.String)">
+            !!!!!!!!!!!!!!!!!!!  checkEscapesAndSpecialChars that we used on Reader/ParseReader
+                                 HOW DOES/SHOULD THIS APPLY WHEN WE DO IT HERE
+        </member>
+    </members>
+</doc>

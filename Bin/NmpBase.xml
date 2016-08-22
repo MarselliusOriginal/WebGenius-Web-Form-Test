@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NmpBase</name>
+    </assembly>
+    <members>
+        <member name="T:NmpBase.StringBuilderExtensions">
+            <summary>
+            String builder extension methods
+            </summary>
+        </member>
+        <member name="T:NmpBase.Arguments">
+            <summary>
+            Methods to create argument lists from simple types described by
+            casting string values
+            </summary>
+            
+        </member>
+        <member name="M:NmpBase.Arguments.Create(System.String)">
+            <summary>
+            Cast an argument in the form "(type) value", the string must be
+            correctly formatted
+            </summary>
+            <param name="arg">string in the form "(cast type) value" </param>
+            <returns></returns>
+        </member>
+        <member name="M:NmpBase.Arguments.Create(System.String,System.String)">
+            <summary>
+            Generates the string "(typename) value" to pass along to the single
+            argument version of Creat()
+            </summary>
+            <param name="typeName"></param>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NmpBase.INmpDynamic">
+            <summary>
+            INmpDynamic interface is used on objects that implement an extensible ...
+            </summary>
+            
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.HasMember(System.String)">
+             <summary>
+             	Has member.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="memberName">
+             	Name of the member.
+             </param>
+            
+             <returns>
+             	.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.HasProperty(System.String)">
+             <summary>
+             	Query if 'propName' has property.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+            
+             <returns>
+             	true if property, false if not.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.GetPropertyType(System.String)">
+             <summary>
+             	Gets a property type.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+            
+             <returns>
+             	The property type.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.GetPropertyValue(System.String)">
+             <summary>
+             	Gets a property value.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+            
+             <returns>
+             	The property value.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.HasIndexer(System.String)">
+             <summary>
+             	Query if 'propName' has indexer.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+            
+             <returns>
+             	true if indexer, false if not.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.GetIndexerValue(System.String,System.Object[])">
+             <summary>
+             	Gets an indexer value.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+             <param name="args">
+             	The arguments.
+             </param>
+            
+             <returns>
+             	The indexer value.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.HasMethod(System.String)">
+             <summary>
+             	Query if 'propName' has method.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+            
+             <returns>
+             	true if method, false if not.
+             </returns>
+        </member>
+        <member name="M:NmpBase.NmpDynamicBase.GetMethodValue(System.String,System.Object[])">
+             <summary>
+             	Gets a method value.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+            
+             <param name="propName">
+             	Name of the property.
+             </param>
+             <param name="args">
+             	The arguments.
+             </param>
+            
+             <returns>
+             	The method value.
+             </returns>
+        </member>
+        <member name="M:NmpBase.External.FindExe(System.String)">
+            <summary>
+            Locate exe file using the path environmental variable
+            </summary>
+            <param name="exeName"></param>
+            <returns>path including exe name, or emptyr string</returns>
+        </member>
+        <member name="T:NmpBase.Helpers">
+            <summary>
+            Helper methods that have not found a home elsewhere
+            </summary>
+        </member>
+        <member name="M:NmpBase.JSONParser.PeekNotWhiteSpace">
+            eats white space but does not eat first non white space char
+        </member>
+        <member name="T:NmpBase.ListOfNmpArray">
+             <summary>
+             	Collection of NmpArray objects using List&lt;T&gt;
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+        </member>
+        <member name="T:NmpBase.ListOfNmpStringList">
+             <summary>
+             	List of NmpstringLists using List&lt;T&gt;  
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+        </member>
+        <member name="T:NmpBase.NmpArray">
+             <summary>
+             	NMP's notion of an associative array, based on "Keys" that are strings
+             	and "Values" that are objects.
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+        </member>
+        <member name="M:NmpBase.NmpStack`1.GetEnumerator">
+            <summary>
+            Gets items from the stack with the top of stack being the first item
+            in the collection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NmpBase.NmpStack`1.ReverseEnumerator">
+            <summary>
+            Gets the items from the stack with the bottom of the stack (oldest item)
+            being the first item returned
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NmpBase.NmpStringList">
+             <summary>
+             	Collection of stringd using List&lt;T&gt;
+             </summary>
+            
+             <remarks>
+             	Jpm, 3/26/2011.
+             </remarks>
+        </member>
+        <member name="T:NmpBase.IPrefs">
+            <summary>
+            Interface for accessing a data store that looks like an INI file
+            </summary>
+        </member>
+        <member name="T:NmpBase.FilePrefs">
+            <summary>
+            Class that wraps access to an INI file
+            </summary>
+        </member>
+        <member name="P:NmpBase.FilePrefs.IsValid">
+            string	SECTION = string.Empty;
+        </member>
+        <member name="T:NmpBase.SplitString">
+            <summary>
+            Splits strings for the Arguments class, keeps casts and the values being
+            cast together, maintains object array items together
+            </summary>
+        </member>
+        <member name="T:NmpBase.ParseHelpers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NmpBase.StringExtensions">
+            <summary>
+            String extension methods other than the expand methods
+            </summary>
+        </member>
+        <member name="T:NmpBase.StringIndexer">
+            <summary>
+            Wraps a string that we can index as we move from character to character,
+            used as input for simple string parsing
+            </summary>
+        </member>
+        <member name="T:NmpBase.UsingHelper">
+            <summary>
+            Simple class for use in "using" statements where you want to execute
+            some arbitrary code on object creation and disposal (when the block is
+            exited)
+            </summary>
+        </member>
+        <member name="M:NmpBase.UsingHelper.#ctor(System.Action,System.Action)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="init"> null or an Action to be executed from within the constructor</param>
+            <param name="dispose">null or an Action to be executed when the object is disposed</param>
+            <example>
+            <code>
+            
+            public class ContainerSuppressError : UsingWrapper {
+            	public ContainerSuppressError( IServiceContainer c, bool suppress )
+            	{
+            		bool iv = c.SuppressErrors;
+            		disposeAction = () => c.SuppressErrors = iv;
+            		c.SuppressErrors = suppress;
+            	}
+            }
+            
+            </code>
+            </example>
+        </member>
+    </members>
+</doc>

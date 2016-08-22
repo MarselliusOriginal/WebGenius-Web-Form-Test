@@ -1,9 +1,11 @@
 // Backbone Model
+var ineed = require('ineed');
 
 var Blog = Backbone.Model.extend({
 	defaults: {
 		title: '',
-		url: ''
+		url: '',
+        pic: ''
 	}
 });
 
@@ -32,32 +34,38 @@ var blogs = new Blogs();
 // Backbone View for one blog
 
 var BlogView = Backbone.View.extend({
-	model: new Blog(),
-	tagName: 'tr',
-	initialize: function() {
-		this.template = _.template($('.blogs-list-template').html());
-	},
-	events: {
-		'click .edit-blog': 'edit',
-		'click .update-blog': 'update',
-		'click .cancel': 'cancel',
-		'click .delete-blog': 'delete'
-	},
-	edit: function() {
-		$('.edit-blog').hide();
-		$('.delete-blog').hide();
-		this.$('.update-blog').show();
-		this.$('.cancel').show();
+    model: new Blog(),
+    tagName: 'tr',
+    initialize: function() {
+        this.template = _.template($('.blogs-list-template').html());
+    },
+    events: {
+        'click .edit-blog': 'edit',
+        'click .update-blog': 'update',
+        'click .cancel': 'cancel',
+        'click .delete-blog': 'delete'
+    },
+    edit: function() {
+        $('.edit-blog').hide();
+        $('.delete-blog').hide();
+        this.$('.update-blog').show();
+        this.$('.cancel').show();
 
-		var title = this.$('.title').html();
-		var url = this.$('.url').html();
-	    // var pic = JSON.parse(url);
-		this.$('.title').html('<input type="text" class="form-control title-update" value="' + title + '">');
-		this.$('.url').html('<input type="text" class="form-control url-update" value="' + url + '">');
-	},
-	update: function() {
-		this.model.set('title', $('.title-update').val());
-		this.model.set('url', $('.url-update').val());
+        var title = this.$('.title').html();
+        var url = this.$('.url').html();
+        var pic = this.$('.pic').html();
+        // var pic = JSON.parse(url);
+        this.$('.title').html('<input type="text" class="form-control title-update" value="' + title + '">');
+        this.$('.url').html('<input type="text" class="form-control url-update" value="' + url + '">');
+        this.$('.pic').html('<img class="pic" src="' + pic + '">');
+    },
+    update: function() {
+        this.model.set('title', $('.title-update').val());
+        this.model.set('url', $('.url-update').val());
+        this.model.set('pic', $( ineed.collect.images.from('.url-update')) );
+        
+	    //this.model.set('pic', $('.pic').html());
+	    //  ineed.collect.images.fromHtml($('.url-input').val())
 	},
 	cancel: function() {
 		blogsView.render();
@@ -98,15 +106,24 @@ var BlogsView = Backbone.View.extend({
 
 var blogsView = new BlogsView();
 
+//var result = new indeed(); //ineed.collect.images.fromHtml(html);
+//var result = ineed.collect.texts.images.scripts.fromHtml(html);
+//var result = ineed.collect.texts.images.scripts.fromHtml(html);
+
 $(document).ready(function() {
 	$('.add-blog').on('click', function() {
-		var blog = new Blog({
-			title: $('.title-input').val(),
-			url: $('.url-input').val()
-		});
-		$('.title-input').val('');
-		$('.url-input').val('');
-		console.log(blog.toJSON());
-		blogs.add(blog);
+	    var blog = new Blog({
+	        title: $('.title-input').val(),
+	        url: $('.url-input').val(),
+	        pic: $('.pic').attr({
+	            alt: $('.title-input').val(),
+	            src: $( ineed.collect.images.from('.url-input').val() )
+	        })
+		    });
+		    $('.title-input').val('');
+		    $('.url-input').val('');
+		    $('pic').html('');
+		    console.log(blog.toJSON());
+		    blogs.add(blog);
 	})
 })
